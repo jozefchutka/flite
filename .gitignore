@@ -3,3 +3,9 @@ a.wasm
 a.worker.js
 /bin
 /build
+/config.log
+/config.status
+/config/config
+/config/system.mak
+/main/flite_lang_list.c
+/main/flite_voice_list.c
