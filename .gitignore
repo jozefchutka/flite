@@ -1,0 +1,5 @@
+*.o
+a.wasm
+a.worker.js
+/bin
+/build
