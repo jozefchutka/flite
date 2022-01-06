@@ -1,0 +1,10 @@
+prefix=/home/jozefchutka/yscene-ffmpeg/build
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: flite
+Version: 2.0.0
+Description: 
+Libs: -L${libdir} -lflite
+Cflags: -I${includedir}
