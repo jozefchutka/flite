@@ -54,9 +54,9 @@ LOCAL_INCLUDES =
 
 ALL = shared_libs \
       $(BINDIR)/flite$(EXEEXT) \
-      $(BINDIR)/t2p$(EXEEXT) $(BINDIR)/compile_regexes$(EXEEXT) \
-      $(BINDIR)/flitevox_info$(EXEEXT) \
-      flite_voice_list.c each $(EXTRABINS)
+#      $(BINDIR)/t2p$(EXEEXT) $(BINDIR)/compile_regexes$(EXEEXT) \
+#      $(BINDIR)/flitevox_info$(EXEEXT) \
+#      flite_voice_list.c each $(EXTRABINS)
 
 VOICES=$(VOXES)
 VOICELIBS=$(VOICES:%=flite_%)
@@ -115,28 +115,28 @@ $(BINDIR)/flite$(EXEEXT): flite_main.o flite_lang_list $(flite_LIBS_deps)
 	$(TOP)/tools/make_voice_list $(VOICES)
 	rm -f flite_voice_list.o
 	$(MAKE) flite_voice_list.o
-	#$(CC) $(CFLAGS) -o $@ flite_main.o flite_voice_list.o flite_lang_list.o $(flite_LIBS_flags) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ flite_main.o flite_voice_list.o flite_lang_list.o $(flite_LIBS_flags) $(LDFLAGS) $(BUILD_FLAGS)
 
 $(BINDIR)/flitevox_info$(EXEEXT): flitevox_info_main.o flite_lang_list $(flite_LIBS_deps)
 	$(TOP)/tools/make_voice_list $(VOICES)
 	rm -f flite_voice_list.o
 	$(MAKE) flite_voice_list.o
-	#$(CC) $(CFLAGS) -o $@ flitevox_info_main.o flite_voice_list.o flite_lang_list.o $(flite_LIBS_flags) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ flitevox_info_main.o flite_voice_list.o flite_lang_list.o $(flite_LIBS_flags) $(LDFLAGS)
 
 $(BINDIR)/world$(EXEEXT): world_main.c
-	#$(CC) $(CFLAGS) -o $@ world_main.c -I../include -I../src/world $(flite_LIBS_flags) $(world_LIBS_flags) -lworld $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ world_main.c -I../include -I../src/world $(flite_LIBS_flags) $(world_LIBS_flags) -lworld $(LDFLAGS)
 
 $(BINDIR)/flite_time$(EXEEXT): flite_time_main.o $(flite_time_LIBS_deps)
-	#$(CC) $(CFLAGS) -o $@ flite_time_main.o $(flite_time_LIBS_flags) $(FLITELIBFLAGS) $(LDFLAGS) 
+	$(CC) $(CFLAGS) -o $@ flite_time_main.o $(flite_time_LIBS_flags) $(FLITELIBFLAGS) $(LDFLAGS) 
 
 $(BINDIR)/t2p$(EXEEXT): t2p_main.o $(flite_LIBS_deps)
-	#$(CC) $(CFLAGS) -o $@ t2p_main.o $(flite_LIBS_flags) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ t2p_main.o $(flite_LIBS_flags) $(LDFLAGS)
 
 $(BINDIR)/word_times$(EXEEXT): word_times_main.o $(flite_LIBS_deps)
-	#$(CC) $(CFLAGS) -o $@ word_times_main.o $(flite_LIBS_flags) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ word_times_main.o $(flite_LIBS_flags) $(LDFLAGS)
 
 $(BINDIR)/compile_regexes$(EXEEXT): compile_regexes.o $(FLITELIBS)
-	#$(CC) $(CFLAGS) -o $@ compile_regexes.o $(FLITELIBFLAGS) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ compile_regexes.o $(FLITELIBFLAGS) $(LDFLAGS)
 
 each:
 	@ for i in $(VOICES) ; \
@@ -148,7 +148,7 @@ $(BINDIR)/flite_${VOICE}: flite_main.o flite_lang_list $(flite_LIBS_deps)
 	$(TOP)/tools/make_voice_list $(VOICE)
 	rm -f flite_voice_list.o
 	$(MAKE) flite_voice_list.o
-	#$(CC) $(CFLAGS) -o $@ flite_main.o flite_voice_list.o flite_lang_list.o $(flite_LIBS_flags) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ flite_main.o flite_voice_list.o flite_lang_list.o $(flite_LIBS_flags) $(LDFLAGS)
 
 install:
 #       The basic binaries

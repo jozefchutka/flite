@@ -474,3 +474,13 @@ wide range of fonts, and flite voices, and books in text, html and
 epub format.  Bard is used as a evaluation of flite's capabilities and
 an example of a serious application using flite.
 
+WASM
+-------------
+
+```
+sudo -s
+./init-wasm.sh
+./build-wasm.sh
+```
+
+Artifacts `flite.js` and `flite.wasm` appears in `/bin`.

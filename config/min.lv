@@ -1,0 +1,2 @@
+LEXES = cmulex
+LANGS = usenglish

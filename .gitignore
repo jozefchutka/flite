@@ -9,3 +9,4 @@ a.worker.js
 /config/system.mak
 /main/flite_lang_list.c
 /main/flite_voice_list.c
+/modules
