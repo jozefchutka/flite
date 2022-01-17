@@ -6,5 +6,5 @@ git submodule sync --recursive
 git submodule update --init --recursive --remote
 
 (cd modules/emsdk/ && \
-    ./emsdk install 2.0.34 && \
-    ./emsdk activate 2.0.34)
+    ./emsdk install 3.1.1 && \
+    ./emsdk activate 3.1.1)
