@@ -24,3 +24,9 @@ BUILD_FLAGS=(
 CFLAGS="${CFLAGS[@]}" emconfigure ./configure "${CONF_FLAGS[@]}"
 emmake make clean
 BUILD_FLAGS="${BUILD_FLAGS[@]}" emmake make
+
+gzip --force -9 -c $PWD/bin/flite.js > $PWD/bin/flite.js.gz
+rm $PWD/bin/flite.js
+
+gzip --force -9 -c $PWD/bin/flite.wasm > $PWD/bin/flite.wasm.gz
+rm $PWD/bin/flite.wasm
